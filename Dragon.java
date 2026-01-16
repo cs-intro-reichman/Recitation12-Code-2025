@@ -4,6 +4,8 @@
 public class Dragon extends Monster {
     protected int fireDamage;
 
+    // ============ Constructor ============
+
     public Dragon(String name, int hitPoints, int strength, int fireDamage) {
         super(name, hitPoints, strength);
         if (fireDamage <= 0) {
@@ -12,11 +14,15 @@ public class Dragon extends Monster {
         this.fireDamage = fireDamage;
     }
 
+    // ============ Getters ============
+
     public int getFireDamage() {
         return this.fireDamage;
     }
 
-    // Override takeDamage - Dragons take half damage
+    // ============ Override from Monster ============
+
+    // Dragons take half damage
     @Override
     public int takeDamage(int damage) {
         int dmgTaken = Math.min(damage / 2, this.hitPoints);

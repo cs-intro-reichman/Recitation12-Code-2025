@@ -3,11 +3,15 @@
 
 public class VampireKing extends Vampire {
 
+    // ============ Constructor ============
+
     public VampireKing(String name, int hitPoints, int strength) {
         super(name, hitPoints, strength);
     }
 
-    // Override attack - 20% chance to attack twice
+    // ============ Override from Vampire ============
+
+    // 20% chance to attack twice
     @Override
     public int attack(Monster other) {
         int res = super.attack(other);
@@ -17,7 +21,7 @@ public class VampireKing extends Vampire {
         return res;
     }
 
-    // Override takeDamage - tries to dodge twice (43.75% total dodge chance)
+    // Tries to dodge twice (43.75% total dodge chance)
     @Override
     public int takeDamage(int damage) {
         if (super.didDodge()) {
@@ -25,6 +29,8 @@ public class VampireKing extends Vampire {
         }
         return super.takeDamage(damage);
     }
+
+    // ============ VampireKing-specific Methods ============
 
     public boolean didDoubleAttack() {
         return Math.random() < 0.2;

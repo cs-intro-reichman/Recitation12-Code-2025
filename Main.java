@@ -11,5 +11,7 @@ public class Main {
         if (Magical.class.isAssignableFrom(Summoner.class)) {
             System.out.println("Summoner class implements Magical");
         }
+
+        Summoner summoner2 = new Summoner("Summoner 1", 30, 30, 10, 2);
     }
 }

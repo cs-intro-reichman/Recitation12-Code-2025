@@ -4,6 +4,8 @@
 public class Zombie extends Monster {
     protected int poisonDamage;
 
+    // ============ Constructor ============
+
     public Zombie(String name, int hitPoints, int strength, int poisonDamage) {
         super(name, hitPoints, strength);
         if (poisonDamage <= 0) {
@@ -12,9 +14,13 @@ public class Zombie extends Monster {
         this.poisonDamage = poisonDamage;
     }
 
+    // ============ Getters ============
+
     public int getPoisonDamage() {
         return this.poisonDamage;
     }
+
+    // ============ Override from Monster ============
 
     // Zombie doesn't override takeDamage - uses Monster's implementation
 
@@ -27,6 +33,8 @@ public class Zombie extends Monster {
         }
         return 0;
     }
+
+    // ============ Zombie-specific Methods ============
 
     public boolean didAttack() {
         return Math.random() < 0.5;

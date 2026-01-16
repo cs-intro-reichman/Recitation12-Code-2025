@@ -5,6 +5,8 @@ public abstract class Monster {
     protected int hitPoints;
     protected int strength;
 
+    // ============ Constructor ============
+
     public Monster(String name, int hitPoints, int strength) {
         if (hitPoints <= 0 || strength <= 0) {
             throw new IllegalArgumentException();
@@ -13,6 +15,8 @@ public abstract class Monster {
         this.hitPoints = hitPoints;
         this.strength = strength;
     }
+
+    // ============ Getters ============
 
     public String getName() {
         return this.name;
@@ -30,13 +34,17 @@ public abstract class Monster {
         return this.strength;
     }
 
-    // Concrete method - can be overridden by subclasses
+    // ============ Concrete Methods ============
+
+    // Can be overridden by subclasses
     public int takeDamage(int damage) {
         int dmgTaken = Math.min(damage, this.hitPoints);
         this.hitPoints -= dmgTaken;
         return dmgTaken;
     }
 
-    // Abstract method - MUST be implemented by concrete subclasses
+    // ============ Abstract Methods ============
+
+    // MUST be implemented by concrete subclasses
     public abstract int attack(Monster other);
 }

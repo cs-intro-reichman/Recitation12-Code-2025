@@ -4,6 +4,8 @@
 
 public interface Magical {
 
+    // ============ Interface Methods ============
+
     int castSpell(Monster target);
 
     int getMana();

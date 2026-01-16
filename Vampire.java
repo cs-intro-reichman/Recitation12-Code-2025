@@ -3,11 +3,15 @@
 
 public class Vampire extends Monster {
 
+    // ============ Constructor ============
+
     public Vampire(String name, int hitPoints, int strength) {
         super(name, hitPoints, strength);
     }
 
-    // Override takeDamage - 25% chance to dodge
+    // ============ Override from Monster ============
+
+    // 25% chance to dodge
     @Override
     public int takeDamage(int damage) {
         if (this.didDodge()) {
@@ -23,6 +27,8 @@ public class Vampire extends Monster {
         this.heal(hp);
         return hp;
     }
+
+    // ============ Vampire-specific Methods ============
 
     public void heal(int hitPoints) {
         this.hitPoints += hitPoints / 3;

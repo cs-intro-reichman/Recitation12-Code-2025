@@ -52,11 +52,12 @@ public class Mage extends Monster implements Magical {
         return other.takeDamage(this.strength);
     }
 
+    // ============ Additional Methods ============
     public boolean shouldCastSpell() {
         return Math.random() < 0.8;
     }
 
     public int getSpellPower() {
-        return spellPower;
+        return this.spellPower;
     }
 }

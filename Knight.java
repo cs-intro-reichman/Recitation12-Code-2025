@@ -5,11 +5,15 @@ public class Knight extends Monster {
     private int defense;
     private TitleEnum title;
 
+    // ============ Constructor ============
+
     public Knight(String name, int hitPoints, int strength, int defense, TitleEnum title) {
         super(name, hitPoints, strength);
         this.defense = defense;
         this.title = title;
     }
+
+    // ============ Getters ============
 
     public int getDefense() {
         return this.defense;
@@ -19,7 +23,9 @@ public class Knight extends Monster {
         return this.title;
     }
 
-    // Override takeDamage - reduce damage by defense
+    // ============ Override from Monster ============
+
+    // Reduce damage by defense
     @Override
     public int takeDamage(int damage) {
         int damageTaken = (damage - this.defense);
@@ -41,6 +47,8 @@ public class Knight extends Monster {
         }
         return res;
     }
+
+    // ============ Knight-specific Methods ============
 
     public boolean isCriticalHit() {
         return Math.random() < 0.1;

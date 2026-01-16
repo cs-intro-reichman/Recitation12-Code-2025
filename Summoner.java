@@ -4,8 +4,10 @@
 // Summoner can drain life with spells and summon creatures
 
 public class Summoner extends Mage {
-    Dragon [] summonedDragons;
-    int dragonCount;
+    private Dragon [] summonedDragons;
+    private int dragonCount;
+
+    // ============ Constructor ============
 
     public Summoner(String name, int hitPoints, int strength, int mana, int spellPower) {
         super(name, hitPoints, strength, mana, spellPower);
@@ -13,12 +15,16 @@ public class Summoner extends Mage {
         this.dragonCount = 0;
     }
 
-    // Override castSpell - heals based on damage dealt
+    // ============ Override from Mage ============
+
+    // Heals based on damage dealt
     @Override
     public int castSpell(Monster target) {
         int damage = super.castSpell(target);
         return damage;
     }
+
+    // ============ Summoner-specific Methods ============
 
     // Summoner can summon creatures (just prints for demo)
     public void summonDragon() {
@@ -29,6 +35,4 @@ public class Summoner extends Mage {
             dragonCount++;
         }
     }
-
-
 }

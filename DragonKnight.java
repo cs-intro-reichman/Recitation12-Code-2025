@@ -6,6 +6,8 @@ public class DragonKnight extends Monster {
     private Knight knight;
     private Dragon dragon;
 
+    // ============ Constructor ============
+
     public DragonKnight(Knight knight, Dragon dragon) {
         super(knight.getName() + " the brave and " + dragon.getName(),
               Math.min(knight.hitPoints, dragon.hitPoints),
@@ -13,6 +15,18 @@ public class DragonKnight extends Monster {
         this.knight = knight;
         this.dragon = dragon;
     }
+
+    // ============ Getters ============
+
+    public Knight getKnight() {
+        return this.knight;
+    }
+
+    public Dragon getDragon() {
+        return this.dragon;
+    }
+
+    // ============ Override from Monster ============
 
     // Uses both Knight's defense and Dragon's damage reduction
     @Override
@@ -38,13 +52,5 @@ public class DragonKnight extends Monster {
     @Override
     public boolean isAlive() {
         return this.hitPoints != 0 && this.knight.isAlive() && this.dragon.isAlive();
-    }
-
-    public Knight getKnight() {
-        return this.knight;
-    }
-
-    public Dragon getDragon() {
-        return this.dragon;
     }
 }
