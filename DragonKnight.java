@@ -17,13 +17,13 @@ public class DragonKnight extends Monster {
     // Uses both Knight's defense and Dragon's damage reduction
     @Override
     public int takeDamage(int damage) {
-        int damageTaken = (damage - knight.getDefense()) / 2;
+        int damageTaken = (damage - this.knight.getDefense()) / 2;
         if (damageTaken < 0) {
             damageTaken = 0;
         }
         damageTaken = super.takeDamage(damageTaken);
-        knight.takeDamage(damage);
-        dragon.takeDamage(damage);
+        this.knight.takeDamage(damage);
+        this.dragon.takeDamage(damage);
         return damageTaken;
     }
 
@@ -37,14 +37,14 @@ public class DragonKnight extends Monster {
 
     @Override
     public boolean isAlive() {
-        return this.hitPoints != 0 && knight.isAlive() && dragon.isAlive();
+        return this.hitPoints != 0 && this.knight.isAlive() && this.dragon.isAlive();
     }
 
     public Knight getKnight() {
-        return knight;
+        return this.knight;
     }
 
     public Dragon getDragon() {
-        return dragon;
+        return this.dragon;
     }
 }
